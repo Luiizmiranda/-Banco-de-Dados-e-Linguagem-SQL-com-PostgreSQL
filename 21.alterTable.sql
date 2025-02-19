@@ -16,7 +16,7 @@ update cliente set idprofissao = 1  where idcliente in (1,9,10,12,15,17);
 update cliente set idprofissao = 2  where idcliente = 2;
 update cliente set idprofissao = 3  where idcliente = 3;
 update cliente set idprofissao = 4  where idcliente in (4,5);
-update cliente set idprofissao = 5  where idcliente in (6,7,8,13);)
+update cliente set idprofissao = 5  where idcliente in (6,7,8,13);
 
 --complemento
 alter table cliente drop nacionalidade;

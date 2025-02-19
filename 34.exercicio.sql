@@ -4,43 +4,86 @@ Exercícios – funções agregadas
 
 1. A média dos valores de vendas dos vendedores que venderam mais que R$ 200,00.
 
+R: select idvendedor ,avg (valor) from pedido group by idvendedor having avg (valor) > 200
+
 2. Os vendedores que venderam mais que R$ 1500,00.
+
+R: select idvendedor,sum(valor) from pedido group by idvendedor having sum (valor) > 1500;
 
 3. O somatório das vendas de cada vendedor.
 
+R: select idvendedor,sum(valor) from pedido group by idvendedor; 
+
 4. A quantidade de municípios.
+
+R: select count (idmunicipio) from municipio
 
 5. A quantidade de municípios que são do Paraná ou de Santa Catarina.
 
+R: select * from uf
+select count (idmunicipio) from municipio where iduf = 1 or iduf = 2
+
+
 6. A quantidade de municípios por estado.
+
+R: select iduf, count (idmunicipio) from municipio group by iduf
 
 7. A quantidade de clientes que informaram o logradouro.
 
+R:select count (idcliente) from cliente where logradouro is not null;
+
 8. A quantidade de clientes por município.
+
+r: select  idmunicipio,count (idcliente) from cliente group by idmunicipio
 
 9. A quantidade de fornecedores.
 
+R:  select count (idfornecedor) from fornecedor
+
 10. A quantidade de produtos por fornecedor.
+
+R: select idfornecedor, count (idproduto) from produto group by idfornecedor 
 
 11. A média de preços dos produtos do fornecedor Cap. Computadores.
 
+R: select * from fornecedor 
+select avg (valor) from produto where idfornecedor = 1
+
 12. O somatório dos preços de todos os produtos.
+
+R: select sum(valor) from produto
 
 13. O nome do produto e o preço somente do produto mais caro.
 
+R: select nome, valor from produto order by valor desc limit 1
+
 14. O nome do produto e o preço somente do produto mais barato.
+
+R:select nome, valor from produto order by valor asc limit 1
 
 15. A média de preço de todos os produtos.
 
+R: select avg(valor) from produto
+
 16. A quantidade de transportadoras.
+
+R: select count (idtransportadora) from transportadora; 
 
 17. A média do valor de todos os pedidos.
 
+R: select avg(valor) from pedido 
+
 18. O somatório do valor do pedido agrupado por cliente.
+
+R: select idcliente, sum(valor) from pedido group by cliente idcliente;
 
 19. O somatório do valor do pedido agrupado por vendedor.
 
+R: select idvendedor, sum(valor) from pedido group by idvendedor;
+
 20. O somatório do valor do pedido agrupado por transportadora.
+
+R: select idtransportadora, sum(valor) from pedido group by idtransportadora;
 
 21. O somatório do valor do pedido agrupado pela data.
 
